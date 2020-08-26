@@ -1,0 +1,22 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "Talend marketing website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "talend": "./utils/talend.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/void--/poc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/void--/poc/issues"
+  },
+  "homepage": "https://github.com/void--/poc#readme"
+}
