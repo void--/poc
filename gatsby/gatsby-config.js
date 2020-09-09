@@ -4,6 +4,8 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
+console.log(process.env);
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -38,8 +40,8 @@ module.exports = {
       options: {
         spaceId: process.env.SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        host: `preview.contentful.com`,
+        accessToken: process.env.PREVIEW ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
+        host: process.env.PREVIEW ? `preview.contentful.com` : `cdn.contentful.com`,
         environment: process.env.CONTENTFUL_ENV,
       },
     },
