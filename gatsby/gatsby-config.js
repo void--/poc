@@ -4,7 +4,11 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
-console.log(process.env);
+// If we're using a branch deploy, the Contentful environment should be
+// the same as the branch.
+const contentfulEnvironment = process.env.CONTEXT === 'branch-deploy' ?
+    process.env.BRANCH :
+    process.env.CONTENTFUL_ENV;
 
 module.exports = {
   siteMetadata: {
@@ -42,7 +46,7 @@ module.exports = {
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.PREVIEW ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
         host: process.env.PREVIEW ? `preview.contentful.com` : `cdn.contentful.com`,
-        environment: process.env.CONTENTFUL_ENV,
+        environment: contentfulEnvironment,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
