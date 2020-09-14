@@ -4,12 +4,6 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
-// If we're using a branch deploy, the Contentful environment should be
-// the same as the branch.
-const contentfulEnvironment = process.env.CONTEXT === 'branch-deploy' ?
-    process.env.BRANCH :
-    process.env.CONTENTFUL_ENV;
-
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -46,7 +40,12 @@ module.exports = {
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.PREVIEW ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
         host: process.env.PREVIEW ? `preview.contentful.com` : `cdn.contentful.com`,
-        environment: contentfulEnvironment,
+        // If we're using a branch deploy, the Contentful environment should be
+        // the same as the branch. CONTEXT env variable is set in netlify.toml
+        // and can be overridden there for specific branches.
+        environment: process.env.CONTEXT === 'branch-deploy' ?
+            process.env.BRANCH :
+            process.env.CONTENTFUL_ENV,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

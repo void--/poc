@@ -13,8 +13,7 @@ exports.onCreateNode = ({node}) => {
 
 exports.createPages = ({graphql, actions}) => {
     const {createPage} = actions;
-    return graphql(`
-    {
+    return graphql(`{
       allContentfulPage {
         nodes {
           id
@@ -35,5 +34,7 @@ exports.createPages = ({graphql, actions}) => {
                 },
             })
         })
-    })
+    }).catch((error) => {
+        console.log(error);
+    });
 }
