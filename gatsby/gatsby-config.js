@@ -45,9 +45,7 @@ module.exports = {
         // If we're using a branch deploy, the Contentful environment should be
         // the same as the branch. CONTEXT env variable is set in netlify.toml
         // and can be overridden there for specific branches.
-        environment: process.env.CONTEXT === 'branch-deploy' ?
-            process.env.BRANCH :
-            process.env.CONTENTFUL_ENV,
+        environment: incomingHookBody.env || process.env.CONTENTFUL_ENV,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

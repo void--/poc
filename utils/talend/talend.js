@@ -13,10 +13,12 @@ const env = program.command('env');
 
 env
     .command('build')
-    .arguments('<env>')
-    .option('-p, --preview', 'Whether or not this build should be a preview')
-    .action((env, options) => {
-        netlifyBuild(env, options.preview);
+    .arguments('<branch>')
+    .option('-p, --preview', 'Whether or not this build should be a preview.')
+    .option('-e, --env <env>', 'The Contentful environment that should be used with this build, will default to an env with the same name as the branch.')
+    .action((branch, options) => {
+        const env = options.env || branch;
+        netlifyBuild(branch, env, options.preview);
     });
 
 const local = program.command('local')
