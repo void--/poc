@@ -4,7 +4,7 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
-console.log("ASDFQWER", process.env.CONTEXT);
+console.log('ASDFQWER', process.env.INCOMING_HOOK_BODY);
 
 module.exports = {
   siteMetadata: {

@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 const commander = require('commander');
+const inquirer = require('inquirer');
 const axios = require('axios');
+const chalk = require('chalk');
+const netlifyBuild = require('./helpers/netlify-build');
 require("dotenv").config({
-    path: `../../.env.local`,
+    path: `${__dirname}/../../.env.local`,
 });
 
 const program = new commander.Command();
@@ -16,18 +19,18 @@ env
         netlifyBuild(env, options.preview);
     });
 
-program.parse(process.argv);
+const local = program.command('local')
 
-async function netlifyBuild(env, preview) {
-    let message = preview
-        ? `Preview build of ${env} triggered via CLI by ${process.env.DEVELOPER}`
-        : `Standard build of ${env} triggered via CLI by ${process.env.DEVELOPER}`;
-    message = encodeURIComponent(message);
-    try {
-        const buildUrl = `${process.env.NETLIFY_BUILD_HOOK}?trigger_branch=${env}&trigger_title=${message}`;
-        const response = await axios.post(buildUrl);
-        console.log(response);
-    } catch (error) {
-        console.error(error);
-    }
-}
+local
+    .command('refresh')
+    .action(async() => {
+        try {
+            const result = await axios.post('http://localhost:8000/__refresh');
+            console.log(chalk.green('Success'));
+        }
+        catch (err) {
+            console.log(chalk.red(err));
+        }
+    });
+
+program.parse(process.argv);
