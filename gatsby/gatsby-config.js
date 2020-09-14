@@ -4,7 +4,7 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
-const incomingHookBody = JSON.parse(decodeURIComponent(process.env.INCOMING_HOOK_BODY)) : {};
+const incomingHookBody = JSON.parse(decodeURIComponent(process.env.INCOMING_HOOK_BODY)) || {};
 
 module.exports = {
   siteMetadata: {
