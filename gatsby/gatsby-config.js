@@ -4,7 +4,7 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
-console.log('ASDFQWER', process.env.INCOMING_HOOK_BODY);
+const incomingHookBody = JSON.parse(decodeURIComponent(process.env.INCOMING_HOOK_BODY)) : {};
 
 module.exports = {
   siteMetadata: {
@@ -40,8 +40,8 @@ module.exports = {
       options: {
         spaceId: process.env.SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.PREVIEW ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
-        host: process.env.PREVIEW ? `preview.contentful.com` : `cdn.contentful.com`,
+        accessToken: process.env.PREVIEW || incomingHookBody.preview ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
+        host: process.env.PREVIEW || incomingHookBody.preview ? `preview.contentful.com` : `cdn.contentful.com`,
         // If we're using a branch deploy, the Contentful environment should be
         // the same as the branch. CONTEXT env variable is set in netlify.toml
         // and can be overridden there for specific branches.

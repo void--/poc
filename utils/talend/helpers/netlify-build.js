@@ -8,9 +8,11 @@ module.exports = async function netlifyBuild(env, preview) {
     message = encodeURIComponent(message);
     try {
         const buildUrl = `${process.env.NETLIFY_BUILD_HOOK}?trigger_branch=${env}&trigger_title=${message}`;
-        const response = await axios.post(buildUrl, {
+        const payload = JSON.stringify({
             'preview': preview,
         });
+        console.log(payload);
+        const response = await axios.post(buildUrl, payload);
         if (response.status === 200) {
             console.log(chalk.green('Build triggered successfully'));
         }
