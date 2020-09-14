@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "talend": "./utils/talend.js"
+    "talend": "./utils/talend/talend.js"
   },
   "repository": {
     "type": "git",
