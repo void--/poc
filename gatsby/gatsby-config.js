@@ -4,6 +4,8 @@ require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
+console.log("ASDFQWER", process.env.CONTEXT);
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
