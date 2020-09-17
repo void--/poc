@@ -5,6 +5,7 @@ require("dotenv").config({
 })
 
 const incomingHookBody = JSON.parse(decodeURIComponent(process.env.INCOMING_HOOK_BODY)) || {};
+console.log("Incoming hook body: ", incomingHookBody);
 
 module.exports = {
   siteMetadata: {
