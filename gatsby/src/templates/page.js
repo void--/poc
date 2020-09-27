@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Hero, {} from '../components/panels/hero';
 import LeftRight from '../components/panels/leftRight';
-import Card from '../components/panels/card';
+import Cards from '../components/panels/cards';
 import SEO from "../components/seo";
 
 export const query = graphql`
@@ -24,7 +24,7 @@ export const query = graphql`
 const panelMap = {
     ContentfulHero: Hero,
     ContentfulLeftRight: LeftRight,
-    ContentfulCards: Card
+    ContentfulCards: Cards
 };
 
 export default ({data}) => {

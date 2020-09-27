@@ -14,7 +14,7 @@
     command = "npm run build"
 
     # Directory with the serverless Lambda functions to deploy to AWS.
-    functions = "netlify/functions/"
+    functions = "netlify/functions"
 
 [context.production.environment]
     CONTEXT = "production"

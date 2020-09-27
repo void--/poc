@@ -31,7 +31,7 @@ const LeftRight = (props) => {
                 <div>
                     <div>
                         <h3>{props.title}</h3>
-                        <p>{text}</p>
+                        <div>{text}</div>
                     </div>
                 </div>
                 <div>

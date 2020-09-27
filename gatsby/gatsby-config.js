@@ -1,10 +1,10 @@
-const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+const activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
 require("dotenv").config({
   path: `../.env.${activeEnv}`,
 })
 
-const incomingHookBody = JSON.parse(decodeURIComponent(process.env.INCOMING_HOOK_BODY)) || {};
+const incomingHookBody = process.env.INCOMING_HOOK_BODY ? JSON.parse(decodeURIComponent(process.env.INCOMING_HOOK_BODY)) : {};
 console.log("Incoming hook body: ", incomingHookBody);
 
 module.exports = {
@@ -28,8 +28,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `talend-poc`,
+        short_name: `foistered`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
