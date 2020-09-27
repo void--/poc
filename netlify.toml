@@ -14,7 +14,9 @@
     command = "npm run build"
 
     # Directory with the serverless Lambda functions to deploy to AWS.
-    functions = "netlify/functions"
+    # Netlify forces you to keep this in the gatsby root, so we have a symlink
+    # pointing to /netlify/functions
+    functions = "netlify-functions"
 
 [context.production.environment]
     CONTEXT = "production"
