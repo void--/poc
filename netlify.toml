@@ -29,7 +29,7 @@
     CONTENTFUL_ENV = "theo"
 
 [[plugins]]
-package = "netlify-plugin-gatsby-cache"
+    package = "netlify-plugin-gatsby-cache"
 
 # Redirects and headers are GLOBAL for all builds – they do not get scoped to
 # contexts no matter where you define them in the file.
@@ -44,17 +44,12 @@ package = "netlify-plugin-gatsby-cache"
     # will make the redirect rule take precedence over any existing files.
     force = true
 
-# You can also define custom headers within your redirects blocks.
-[redirects.headers]
-    # @TODO change this to 15 minutes or more.
-    Cache-Control = "max-age=60"
-
 [[headers]]
     # Define which paths this specific [[headers]] block will cover.
     for = "/*"
 
-[headers.values]
-    # @TODO look into security headers more.
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "frame-ancestors https://www.facebook.com"
+    [headers.values]
+        # @TODO look into security headers more.
+        X-Frame-Options = "DENY"
+        X-XSS-Protection = "1; mode=block"
+        Content-Security-Policy = "frame-ancestors https://www.facebook.com"
