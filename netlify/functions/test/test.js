@@ -9,6 +9,6 @@ exports.handler = async event => {
 
     return {
         statusCode: 200,
-        body: `old: ${joke.data.joke}`,
+        body: `NEW: ${joke.data.joke}`,
     }
 }
