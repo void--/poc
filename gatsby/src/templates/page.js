@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import Hero, {} from '../components/panels/hero';
 import LeftRight from '../components/panels/leftRight';
 import Cards from '../components/panels/cards';
+import Joke from "../components/panels/joke";
 import SEO from "../components/seo";
 
 export const query = graphql`
@@ -16,6 +17,7 @@ export const query = graphql`
           ...Hero
           ...Cards
           ...LeftRight
+          ...Joke
         }
       }
   }
@@ -24,7 +26,8 @@ export const query = graphql`
 const panelMap = {
     ContentfulHero: Hero,
     ContentfulLeftRight: LeftRight,
-    ContentfulCards: Cards
+    ContentfulCards: Cards,
+    ContentfulJoke: Joke,
 };
 
 export default ({data}) => {
