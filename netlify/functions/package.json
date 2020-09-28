@@ -12,6 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bruhapi": "^1.0.2"
+    "axios": "^0.20.0"
   }
 }
