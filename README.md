@@ -9,3 +9,4 @@ Useful docs:
 - [Netlify Dev Documentation](https://github.com/netlify/cli/blob/master/docs/netlify-dev.md)
 - [Netlify JavaScript Client Docs](https://github.com/netlify/js-client)
 - [Netlify API Docs](https://open-api.netlify.com/)
+- [Contentful Custom App Dev](https://www.contentful.com/developers/docs/extensibility/app-framework/create-contentful-app/)
