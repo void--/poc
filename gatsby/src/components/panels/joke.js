@@ -24,7 +24,6 @@ const Joke = (props) => {
 
     }, [loading]);
 
-
     return (
         <>
             {joke
