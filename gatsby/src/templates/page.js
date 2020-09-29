@@ -41,6 +41,7 @@ export default ({data}) => {
         <Layout>
             <SEO title={page.title} />
             <div>
+                <h1>new test feature</h1>
                 <h1>{page.title}</h1>
                 {panels}
             </div>
