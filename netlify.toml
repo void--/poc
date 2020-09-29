@@ -34,6 +34,13 @@
     status = 200
     force = true
 
+[[redirects]]
+    from = "/"
+    to = "/.netlify/functions/contentful-app-test?contentful-app=:contentful-app&key=:key"
+    query = {contentful-app = ":path", key = "123"}
+    status = 200
+    force = true
+
 [[headers]]
     for = "/*"
 
