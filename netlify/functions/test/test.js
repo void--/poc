@@ -7,8 +7,13 @@ exports.handler = async event => {
         }
     });
 
+    await new Promise(r => setTimeout(r, 2000));
+
     return {
         statusCode: 200,
         body: `NEW: ${joke.data.joke}`,
+        headers: {
+            'Cache-Control': 's-maxage=30'
+        }
     }
 }

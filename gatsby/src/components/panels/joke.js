@@ -18,6 +18,7 @@ const Joke = (props) => {
 
         (async () => {
             const joke = await axios.get("/api/test");
+
             setJoke(joke.data);
             setLoading(0);
         })();
