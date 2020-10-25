@@ -5,6 +5,10 @@ require("dotenv").config({
     path: `${__dirname}/../../.env.local`,
 });
 
+// Run commands from CLI project root; allows discoverability of certain dependencies
+// (namely eslint-config-standard used by `talend migrate bootstrap` command).
+process.chdir(__dirname);
+
 const commander = require('commander');
 const inquirer = require('inquirer');
 
