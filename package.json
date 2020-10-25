@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/void--/poc/issues"
   },
-  "homepage": "https://github.com/void--/poc#readme"
+  "homepage": "https://github.com/void--/poc#readme",
+  "dependencies": {}
 }
