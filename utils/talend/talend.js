@@ -29,12 +29,6 @@ testCommand(local);
 if(['migrate'].includes(process.argv[2])) {
     process.argv.splice(2, 1);
     require('yargs')
-        .option('space-id', {
-            default: process.env.CONTENTFUL_SPACE_ID
-        })
-        .option('environment-id', {
-            default: process.env.CONTENTFUL_ENV_ID
-        })
         .scriptName('talend migrate')
         .usage('Manage your Contentful schema by creating incremental scripted changes\nFor more information visit https://github.com/deluan/contentful-migrate')
         .commandDir('./node_modules/contentful-migrate/bin/commands')
