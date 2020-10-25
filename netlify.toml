@@ -21,9 +21,9 @@
 [context.branch-deploy.environment]
     CONTEXT = "branch-deploy"
 
-[context.dev.environment] # 'staging' is a branch name
+[context.dev.environment] # 'dev' is a branch name
     CONTEXT = "other"
-    CONTENTFUL_ENV = "theo"
+    CONTENTFUL_ENV_ID = "theo"
 
 [[plugins]]
     package = "netlify-plugin-gatsby-cache"

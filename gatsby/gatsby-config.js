@@ -39,14 +39,14 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.SPACE_ID,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.PREVIEW || incomingHookBody.preview ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
         host: process.env.PREVIEW || incomingHookBody.preview ? `preview.contentful.com` : `cdn.contentful.com`,
         // If we're using a branch deploy, the Contentful environment should be
         // the same as the branch. CONTEXT env variable is set in netlify.toml
         // and can be overridden there for specific branches.
-        environment: incomingHookBody.env || process.env.CONTENTFUL_ENV,
+        environment: incomingHookBody.env || process.env.CONTENTFUL_ENV_ID,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
