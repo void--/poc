@@ -22,6 +22,9 @@ module.exports = (env) => {
                 site_id: process.env.NETLIFY_SITE_ID
             });
 
+            // Hack to get the current build id -- netlify build hook doesn't return build ID, so instead
+            // we assume that the latest build that is still running and was triggered less than a second ago
+            // is the build we're interested in.
             const currentBuild = builds.filter((build) => {
                 if (!build.done) {
                     const buildTime = (new Date(build.created_at)).getTime();

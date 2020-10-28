@@ -1,6 +1,6 @@
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout";
 import Hero, {} from '../components/panels/hero';
 import LeftRight from '../components/panels/leftRight';
 import Cards from '../components/panels/cards';

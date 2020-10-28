@@ -14,15 +14,17 @@
     # Netlify forces you to keep this in the gatsby root, so we have a symlink
     # pointing to /netlify/functions
     functions = "netlify-functions"
-
-[context.production.environment]
-    CONTEXT = "production"
-
 [context.branch-deploy.environment]
     CONTEXT = "branch-deploy"
 
+[context.master.environment]
+    CONTEXT = "production"
+
+[context.stage.environment]
+    CONTEXT = "stage"
+
 [context.dev.environment] # 'dev' is a branch name
-    CONTEXT = "other"
+    CONTEXT = "dev"
     CONTENTFUL_ENV_ID = "theo"
 
 [[plugins]]

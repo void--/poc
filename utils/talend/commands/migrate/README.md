@@ -1,0 +1,1 @@
+Migrate commands are just an alias of [deluan/contentful-migrate](https://github.com/deluan/contentful-migrate).

@@ -44,8 +44,7 @@ module.exports = {
         accessToken: process.env.PREVIEW || incomingHookBody.preview ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
         host: process.env.PREVIEW || incomingHookBody.preview ? `preview.contentful.com` : `cdn.contentful.com`,
         // If we're using a branch deploy, the Contentful environment should be
-        // the same as the branch. CONTEXT env variable is set in netlify.toml
-        // and can be overridden there for specific branches.
+        // the same as the branch.
         environment: incomingHookBody.env || process.env.CONTENTFUL_ENV_ID,
       },
     },
