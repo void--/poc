@@ -1,0 +1,8 @@
+{
+  "id": "another-field-extension",
+  "name": "another-field-extension",
+  "srcdoc": "./build/index.html",
+  "fieldTypes": [
+    "Text"
+  ]
+}

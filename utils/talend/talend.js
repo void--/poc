@@ -10,7 +10,6 @@ require("dotenv").config({
 process.chdir(__dirname);
 
 const commander = require('commander');
-const inquirer = require('inquirer');
 
 // Import commands.
 const buildCommand = require('./commands/env/build');
@@ -30,7 +29,7 @@ testCommand(local);
 
 // Migrate commands (talend migrate is basically an alias of void--/contentful-migrate
 // which is a fork of deluan/contentful-migrate).
-if(['migrate'].includes(process.argv[2])) {
+if (['migrate'].includes(process.argv[2])) {
     process.argv.splice(2, 1);
     require('yargs')
         .scriptName('talend migrate')
@@ -39,6 +38,12 @@ if(['migrate'].includes(process.argv[2])) {
         .recommendCommands()
         .demandCommand(1, 'Please provide a valid command from the list above')
         .argv;
+}
+// The extension create command uses @contentful/create-contentful-extension.
+else if (process.argv[2] === 'extension' && process.argv[3] === 'create') {
+    process.argv.splice(2, 2);
+    process.chdir(`${__dirname}/../../contentful/ui-extensions`);
+    require(`${__dirname}/node_modules/@contentful/create-contentful-extension/lib/index.js`)
 }
 // Else use commander.
 else {

@@ -1,0 +1,1 @@
+The `extension create` command is an alias of [@contentful/create-contentful-extension](https://github.com/contentful/create-contentful-extension).
