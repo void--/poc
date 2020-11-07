@@ -13,7 +13,7 @@ export const App = ({sdk}) => {
     setValue(value);
   }
 
-  console.log('field-extension edited');
+  console.log('build is working');
 
   const onChange = e => {
     const value = e.currentTarget.value;
