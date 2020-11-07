@@ -1,15 +1,19 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const path = require('path');
 const { exec } = require('child_process');
 
-fs.readdir(__dirname, (err, files) => {
+const root = __dirname;
+fs.rmdirSync(`${root}/build`, { recursive: true });
+
+fs.readdir(root, (err, files) => {
     const extensions = files.filter((file) => {
-        return ![path.basename(__filename), 'package.json'].includes(file);
+        return fs.lstatSync(file).isDirectory();
     });
 
     extensions.forEach((el) => {
-        process.chdir(`${__dirname}/${el}`);
-        exec('npm run build');
+        console.log(el);
+        fs.mkdirSync(`${root}/build/${el}`, { recursive: true })
+        process.chdir(`${root}/${el}`);
+        exec(`npm run build && mv build/* ${root}/build/${el}`);
     });
 });

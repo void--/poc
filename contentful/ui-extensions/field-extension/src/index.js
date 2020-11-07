@@ -39,14 +39,15 @@ export const App = ({sdk}) => {
   console.log(value);
 
   return (
-      <TextInput
-        width="large"
-        type="text"
-        id="my-field"
-        testId="my-field"
-        value={value}
-        onChange={onChange}
-      />
+      <h1>field-extension</h1>
+      // <TextInput
+      //   width="large"
+      //   type="text"
+      //   id="my-field"
+      //   testId="my-field"
+      //   value={value}
+      //   onChange={onChange}
+      // />
   );
 }
 
