@@ -7,7 +7,7 @@ fs.rmdirSync(`${root}/build`, { recursive: true });
 
 fs.readdir(root, (err, files) => {
     const extensions = files.filter((file) => {
-        return fs.lstatSync(file).isDirectory() && file !== 'node_modules';
+        return fs.lstatSync(file).isDirectory() && !['node_modules', '.netlify'].includes(file);
     });
 
     extensions.forEach((el) => {
