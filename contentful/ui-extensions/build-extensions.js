@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs');
-const { exec } = require('child_process');
+const { execSync } = require('child_process');
 
 const root = __dirname;
 fs.rmdirSync(`${root}/build`, { recursive: true });
@@ -14,6 +14,7 @@ fs.readdir(root, (err, files) => {
         console.log(el);
         fs.mkdirSync(`${root}/build/${el}`, { recursive: true })
         process.chdir(`${root}/${el}`);
-        exec(`npm run build && mv build/* ${root}/build/${el}`);
+        execSync(`npm run build && mv build/* ${root}/build/${el}`);
+        process.exit();
     });
 });
