@@ -13,7 +13,8 @@ fs.readdir(root, (err, files) => {
     extensions.forEach((el) => {
         console.log(el);
         fs.mkdirSync(`${root}/build/${el}`, { recursive: true })
+        console.log(`made dir for ${el}`);
         process.chdir(`${root}/${el}`);
-        exec(`npx @contentful/contentful-extension-scripts build --no-inline && mv build/* ${root}/build/${el}`);
+        exec(`echo ${el} && npx @contentful/contentful-extension-scripts build --no-inline && echo ${el}2 && mv build/* ${root}/build/${el}`);
     });
 });
