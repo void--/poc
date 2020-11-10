@@ -1,0 +1,32 @@
+{
+  "name": "talend-contentful",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build-apps-and-extensions.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.10.0",
+    "@babel/plugin-transform-runtime": "7.10.0",
+    "@babel/preset-env": "7.10.0",
+    "@babel/preset-react": "7.10.0",
+    "@contentful/contentful-extension-scripts": "^0.20.1",
+    "@contentful/eslint-config-extension": "0.4.0",
+    "@testing-library/react": "8.0.4",
+    "contentful-cli": "0.33.2",
+    "cssnano": "4.1.10",
+    "eslint": "^6.0.1"
+  },
+  "dependencies": {
+    "@contentful/forma-36-fcss": "^0.0.35",
+    "@contentful/forma-36-react-components": "^3.37.0",
+    "@contentful/forma-36-tokens": "^0.5.2",
+    "contentful-ui-extensions-sdk": "3.13.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

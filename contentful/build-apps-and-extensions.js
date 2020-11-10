@@ -7,18 +7,26 @@ const extDir = `${root}/ui-extensions`;
 const appDir = `${root}/apps`;
 
 // Remove build dir if it exists.
-fs.rmdirSync(`${root}/build`, { recursive: true });
+fs.rmdirSync(`${root}/build/*`, { recursive: true });
 
 // Loop over each ui extension, build and move contents to deployment dir.
-fs.readdir(extDir, (err, files) => {
-    const extensions = files.filter((file) => {
-        return fs.lstatSync(`${extDir}/${file}`).isDirectory();
-    });
+const extensions = fs.readdirSync(extDir).filter((file) => {
+    return fs.lstatSync(`${extDir}/${file}`).isDirectory();
+});
 
-    extensions.forEach((el) => {
-        const buildDir = `${root}/build/ui-extensions/${el}`;
-        fs.mkdirSync(buildDir, { recursive: true })
-        process.chdir(`${extDir}/${el}`);
-        exec(`npx contentful-extension-scripts build --no-inline && mv build/* ${buildDir}`);
+extensions.forEach((el) => {
+    const buildDir = `${root}/build/ui-extensions/${el}`;
+    fs.mkdirSync(buildDir, { recursive: true })
+    process.chdir(`${extDir}/${el}`);
+    console.log('running "contentful-extension-scripts build --no-inline"');
+    exec(`${root}/node_modules/.bin/contentful-extension-scripts build --no-inline && mv build/* ${buildDir}`, (error, stdout, stderr) => {
+        console.log('error:', '======');
+        console.log(error);
+        console.log('stdout:', '======');
+        console.log(stdout);
+        console.log('stderr:', '======');
+        console.log(stderr);
+        console.log('======');
+        console.log(`done w/ ${el}`);
     });
 });

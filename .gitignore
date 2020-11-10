@@ -4,4 +4,4 @@ node_modules
 public
 .netlify
 .deployment
-contentful/build
+contentful/**/build
