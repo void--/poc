@@ -1,7 +1,7 @@
 .cache
 .env.*
 node_modules
-public
+gatsby/public
 .netlify
 .deployment
 contentful/**/build
