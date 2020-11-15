@@ -42,7 +42,7 @@ if (['migrate'].includes(process.argv[2])) {
 // The extension create command uses @contentful/create-contentful-extension.
 else if (process.argv[2] === 'extension' && process.argv[3] === 'create') {
     process.argv.splice(2, 2);
-    process.chdir(`${__dirname}/../../contentful/ui-extensions`);
+    process.chdir(`${__dirname}/../../contentful/ui-extensions/src`);
     require(`${__dirname}/node_modules/@contentful/create-contentful-extension/lib/index.js`)
 }
 // Else use commander.

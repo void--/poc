@@ -3,8 +3,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 
 const root = __dirname;
-const extDir = `${root}/ui-extensions`;
-const appDir = `${root}/apps`;
+const extDir = `${root}/src`;
 
 // Remove build dir if it exists.
 fs.rmdirSync(`${root}/build/*`, { recursive: true });
@@ -15,7 +14,7 @@ const extensions = fs.readdirSync(extDir).filter((file) => {
 });
 
 extensions.forEach((el) => {
-    const buildDir = `${root}/build/ui-extensions/${el}`;
+    const buildDir = `${root}/build/${el}`;
     fs.mkdirSync(buildDir, { recursive: true })
     process.chdir(`${extDir}/${el}`);
     console.log('running "contentful-extension-scripts build --no-inline"');
