@@ -13,8 +13,6 @@ const extensions = fs.readdirSync(extDir).filter((file) => {
     return fs.lstatSync(`${extDir}/${file}`).isDirectory();
 });
 
-//
-
 extensions.forEach((el) => {
     const buildDir = `${root}/build/${el}`;
     fs.mkdirSync(buildDir, { recursive: true })
