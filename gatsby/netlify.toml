@@ -44,6 +44,19 @@
     status = 200
     force = true
 
+# Domain redirects
+[[redirects]]
+    from = "http://derply.io/*"
+    to = "https://www.talend.com/:splat"
+    status = 302
+    force = true
+
+[[redirects]]
+    from = "https://derply.io/*"
+    to = "https://www.talend.com/:splat"
+    status = 302
+    force = true
+
 [[headers]]
     for = "/*"
 
