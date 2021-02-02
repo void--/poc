@@ -46,14 +46,14 @@
 
 # Domain redirects
 [[redirects]]
-    from = "http://derply.io/*"
-    to = "https://www.talend.com/:splat"
+    from = "http://www.derply.io/*"
+    to = "https://www.example.com/:splat"
     status = 302
     force = true
 
 [[redirects]]
-    from = "https://derply.io/*"
-    to = "https://www.talend.com/:splat"
+    from = "https://www.derply.io/*"
+    to = "https://www.example.com/:splat"
     status = 302
     force = true
 
