@@ -39,13 +39,13 @@ module.exports = {
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        spaceId: '0s0noii5mpe8',
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.PREVIEW || incomingHookBody.preview ? process.env.CONTENTFUL_PREVIEW_TOKEN : process.env.CONTENTFUL_DELIVERY_TOKEN,
-        host: process.env.PREVIEW || incomingHookBody.preview ? `preview.contentful.com` : `cdn.contentful.com`,
+        accessToken: 'KUVtJfRx0RzZMcqlWZh_Ss-fpyvvkjsUJN1Loc-AGxw',
+        host: `preview.contentful.com`,
         // If we're using a branch deploy, the Contentful environment should be
         // the same as the branch.
-        environment: incomingHookBody.env || process.env.CONTENTFUL_ENV_ID,
+        environment: 'master',
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
