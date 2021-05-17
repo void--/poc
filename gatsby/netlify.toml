@@ -53,8 +53,8 @@
 
 [[redirects]]
     from = "https://www.derply.io/*"
-    to = "https://www.talend.com/:splat"
-    status = 302
+    to = "https://talend-static-backup.netlify.app/:splat"
+    status = 200
     force = true
 
 [[headers]]
